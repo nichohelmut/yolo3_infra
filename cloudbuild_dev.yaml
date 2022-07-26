@@ -1,0 +1,12 @@
+steps:
+  - id: 'terraform init'
+    name: 'hashicorp/terraform:0.14.6'
+    args: [ 'init', '-backend-config', 'dev_backend_config.tfvars']
+
+  - id: 'terraform plan'
+    name: 'hashicorp/terraform:0.14.6'
+    args: [ 'plan', '-var-file=dev.tfvars' ]
+
+  - id: 'terraform apply'
+    name: 'hashicorp/terraform:0.14.6'
+    args: [ 'apply','-auto-approve', '-var-file=dev.tfvars']
